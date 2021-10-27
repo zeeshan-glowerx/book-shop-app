@@ -1,13 +1,6 @@
 import React from "react";
 import { cardData } from "../Data";
-import {
-  Card,
-  Grid,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { Card, Grid, CardMedia, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { yellow } from "@mui/material/colors";
 
@@ -17,7 +10,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 const BookCard = () => {
   const renderReview = (review) => {
     let num = review.toString();
-    if (review > 1000)  return num.charAt(0) + "K";
+    if (review > 1000) return num.charAt(0) + "K";
     else if (review > 10000) return num.charAt(0) + num.charAt(1) + "K";
 
     return review;
@@ -72,10 +65,10 @@ const BookCard = () => {
                     alt="green iguana"
                   />
 
-                  <Typography>
+                  <Typography style={{ textAlign: "left" }}>
                     <b>{elem.title}</b>
                   </Typography>
-                  <Typography>
+                  <Typography style={{ textAlign: "left" }}>
                     {[...Array(5)].map((star, i) => {
                       const ratingValue = i + 1;
                       return (

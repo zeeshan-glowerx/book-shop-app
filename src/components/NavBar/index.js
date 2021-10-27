@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import {Toolbar, Typography } from "@mui/material";
 import LibraryBooksSharpIcon from "@mui/icons-material/LibraryBooksSharp";
 import "./index.css";
 
@@ -25,7 +25,7 @@ const NavBar = ({activeItem}) => {
       <input
         type="search"
         className="search__NavBar"
-        placeholder=" SEARCH"
+        placeholder="&#xF002;   Search" 
       />
     </Toolbar>
   );

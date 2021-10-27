@@ -1,13 +1,6 @@
 import React from "react";
 import { cardData } from "../Data";
-import {
-  Card,
-  Grid,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { Card, Grid, CardMedia, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { yellow } from "@mui/material/colors";
 const BookCard = () => {
@@ -46,38 +39,42 @@ const BookCard = () => {
           {cardData.map((elem, ind) => {
             return (
               <Grid key={ind} item>
-                <Card style={{ border: "none", boxShadow: "none" , height:"328px",width:"222.3px"}} >
-              
-                    <CardMedia
-                      component="img"
-                      height= "250px"
-                      width="219.3px"
-                      image={elem.imgUrl}
-                      alt="green iguana"
-                    />
-                  
-                      <Typography>
-                        <b>{elem.title}</b>
-                      </Typography>
-                      <Typography>
-                        {[...Array(5)].map((star, i) => {
-                          const ratingValue = i + 1;
-                          return (
-                            <StarIcon
-                              sx={{
-                                fontSize: 18,
-                                color:
-                                  ratingValue > elem.rating
-                                    ? "#EEEDF5"
-                                    : yellow[800],
-                              }}
-                            />
-                          );
-                        })}{" "}
-                        {renderReview(elem.reviewCount)} <b>review</b>
-                      </Typography>
-                 
-                
+                <Card
+                  style={{
+                    border: "none",
+                    boxShadow: "none",
+                    height: "328px",
+                    width: "222.3px",
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    height="250px"
+                    width="219.3px"
+                    image={elem.imgUrl}
+                    alt="green iguana"
+                  />
+
+                  <Typography>
+                    <b>{elem.title}</b>
+                  </Typography>
+                  <Typography>
+                    {[...Array(5)].map((star, i) => {
+                      const ratingValue = i + 1;
+                      return (
+                        <StarIcon
+                          sx={{
+                            fontSize: 18,
+                            color:
+                              ratingValue > elem.rating
+                                ? "#EEEDF5"
+                                : yellow[800],
+                          }}
+                        />
+                      );
+                    })}{" "}
+                    {renderReview(elem.reviewCount)} <b>review</b>
+                  </Typography>
                 </Card>
               </Grid>
             );
