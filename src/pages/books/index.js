@@ -1,17 +1,15 @@
 import React from "react";
-import NavBar from "../../components/NavBar";
-import Cards from "../../components/Cards";
+import BookCard from "../../components/BookCard";
 import Layout from "../../components/Layout";
 import Slider from "../../components/Slider";
 import CopyRight from "../../components/CopyRight";
 
 const Books = () => {
   return (
-    <Layout>
-      <NavBar activeItem="Books" />
+    <Layout activeItem="Books">
       <Slider />
-      <Cards/>
-      <CopyRight/>
+      <BookCard />
+      <CopyRight />
     </Layout>
   );
 };

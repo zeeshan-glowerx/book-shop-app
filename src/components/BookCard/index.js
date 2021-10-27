@@ -2,7 +2,7 @@ import React from "react";
 import DownloadedCard from "./DownloadCard";
 import TopRatedCard from "./TopRateCard";
 
-function Card() {
+const BookCard = ()=> {
   return (
     <div>
       <TopRatedCard />
@@ -11,4 +11,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default BookCard;
