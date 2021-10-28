@@ -3,20 +3,12 @@ import { cardData } from "../Data";
 import { Card, Grid, CardMedia, Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { yellow } from "@mui/material/colors";
-
+import { Link } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { convertReview, reviewStars } from "../../../utlis";
 
 const BookCarouselCard = () => {
-
-  const convertReview = (review) => {
-
-    let num = review.toString();
-    if (review > 1000) return num.charAt(0) + "K";
-    else if (review > 10000) return num.charAt(0) + num.charAt(1) + "K";
-
-    return review;
-  };
   return (
     <>
       <p
@@ -51,43 +43,36 @@ const BookCarouselCard = () => {
                 justifyContent="center"
                 alignItems="center"
               >
-                <Card
-                  style={{
-                    border: "none",
-                    boxShadow: "none",
-                    height: "328px",
-                    width: "222.3px",
-                  }}
+                <Link
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                  key={indexedDB}
+                  to={`Books/${elem.title}/${elem.id}`}
                 >
-                  <CardMedia
-                    component="img"
-                    height="250px"
-                    width="219.3px"
-                    image={elem.imgUrl}
-                    alt="green iguana"
-                  />
+                  <Card
+                    style={{
+                      border: "none",
+                      boxShadow: "none",
+                      height: "328px",
+                      width: "222.3px",
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      height="250px"
+                      width="219.3px"
+                      image={elem.imgUrl}
+                      alt="green iguana"
+                    />
 
-                  <Typography style={{ textAlign: "left" }}>
-                    <b>{elem.title}</b>
-                  </Typography>
-                  <Typography style={{ textAlign: "left" }}>
-                    {[...Array(5)].map((star, i) => {
-                      const ratingValue = i + 1;
-                      return (
-                        <StarIcon
-                          sx={{
-                            fontSize: 18,
-                            color:
-                              ratingValue > elem.rating
-                                ? "#EEEDF5"
-                                : yellow[800],
-                          }}
-                        />
-                      );
-                    })}{" "}
-                    {convertReview(elem.reviewCount)} <b>review</b>
-                  </Typography>
-                </Card>
+                    <Typography style={{ textAlign: "left" }}>
+                      <b>{elem.title}</b>
+                    </Typography>
+                    <Typography style={{ textAlign: "left" }}>
+                      {reviewStars(elem.rating, StarIcon)}{" "}
+                      {convertReview(elem.reviewCount)} <b>review</b>
+                    </Typography>
+                  </Card>
+                </Link>
               </Grid>
             );
           })}

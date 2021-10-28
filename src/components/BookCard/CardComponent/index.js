@@ -2,20 +2,18 @@ import React from "react";
 import { Card, Grid, CardMedia, Typography } from "@mui/material";
 import { cardData } from "../Data";
 import StarIcon from "@mui/icons-material/Star";
-import { yellow } from "@mui/material/colors";
+import { convertReview, reviewStars } from "../../../utlis";
+import {Link} from  'react-router-dom'
 
 const CardComponent = () => {
-    
-  const convertReview = (review) => {
-    let num = review.toString();
-    if (review < 1000) return review;
-    else if (review > 10000) return num.charAt(0) + num.charAt(1) + "K";
-
-    return num.charAt(0) + "K";
-  };
+  
   return cardData.map((elem, ind) => {
     return (
       <Grid key={ind} item>
+      <Link
+       style={{ color: 'inherit', textDecoration: 'inherit' }}  
+        key={indexedDB} 
+        to={`Books/${elem.title}/${elem.id}`}> 
         <Card
           style={{
             border: "none",
@@ -36,20 +34,11 @@ const CardComponent = () => {
             <b>{elem.title}</b>
           </Typography>
           <Typography>
-            {[...Array(5)].map((star, i) => {
-              const ratingValue = i + 1;
-              return (
-                <StarIcon
-                  sx={{
-                    fontSize: 18,
-                    color: ratingValue > elem.rating ? "#EEEDF5" : yellow[800],
-                  }}
-                />
-              );
-            })}{" "}
+            {reviewStars(elem.rating, StarIcon)}{" "}
             {convertReview(elem.reviewCount)} <b>review</b>
           </Typography>
         </Card>
+        </Link>
       </Grid>
     );
   });
