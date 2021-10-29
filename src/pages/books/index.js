@@ -8,7 +8,7 @@ const Books = () => {
   return (
     <Layout activeItem="Books">
       <Slider />
-      <BookCard />
+      <BookCard  location="Books"/>
       <CopyRight />
     </Layout>
   );

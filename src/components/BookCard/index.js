@@ -2,11 +2,11 @@ import React from "react";
 import DownloadedCard from "./DownloadCard";
 import TopRatedCard from "./TopRateCard";
 
-const BookCard = ()=> {
+const BookCard = ({location})=> {
   return (
     <div>
       <TopRatedCard />
-      <DownloadedCard />
+      <DownloadedCard location={location}/>
     </div>
   );
 }

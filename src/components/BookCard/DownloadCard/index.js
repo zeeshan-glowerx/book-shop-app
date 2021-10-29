@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 
 import CardComponent from "../CardComponent";
 
-const BookGridCard = () => {
+const BookGridCard = ({location}) => {
   return (
     <Grid container spacing={5}>
       <Grid marginTop="20px" item xs={12}>
@@ -28,7 +28,7 @@ const BookGridCard = () => {
           alignItems="center"
           spacing={2}
         >
-          <CardComponent />
+          <CardComponent location={location} />
         </Grid>
       </Grid>
     </Grid>
