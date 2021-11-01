@@ -1,5 +1,10 @@
 import React from "react";
-const Layout = ({ children }) => {
-  return <React.Fragment>{children}</React.Fragment>;
+import Navbar from '../NavBar'
+const Layout = ({activeItem, children }) => {
+
+  return <React.Fragment>
+  <Navbar activeItem={activeItem}/>
+  {children}
+  </React.Fragment>;
 };
 export default Layout;
